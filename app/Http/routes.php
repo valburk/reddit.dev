@@ -21,7 +21,7 @@
 // });
 
 
-// Route::get('{number}/{Onumber}', function($number, $Onumber)
+// Route::get('add/{number}/{Onumber}', function($number, $Onumber)
 // {
 // 	if (!is_numeric($number)){
 // 	    return "Must be a number!";
