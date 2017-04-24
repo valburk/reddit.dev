@@ -21,10 +21,40 @@
 // });
 
 
-Route::get('{number}', function($number)
+// Route::get('{number}/{Onumber}', function($number, $Onumber)
+// {
+// 	if (!is_numeric($number)){
+// 	    return "Must be a number!";
+// 	}else{
+// 		return $number + $Onumber;
+// 	}
+// });
+
+
+// Route::get('/sayhello/{name}', function($name)
+// {
+//     return view('my-first-view');
+// });
+
+// Route::get('/sayhello/{name}', function($name)
+// {
+//     if ($name == "Chris") {
+//         return Redirect::to('/');
+//     }
+
+//     $data = array('name' => $name);
+//     return view('my-first-view', $data);
+// });
+
+
+
+
+Route::get('/roll/{guess}', function($guess)
 {
-	if (!is_numeric($number)){
-    return "Must be a number!";
-}else{
-	return $number + 1;}
+    if ($guess == "guess") {
+        return Redirect::to('/');
+    }
+
+    $data = array('guess' => $guess);
+    return view('rolldice', $data);
 });
