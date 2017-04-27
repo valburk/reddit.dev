@@ -2,6 +2,7 @@
 
 $rand = mt_rand (1, 6 );
 
+
 if(!is_numeric($guess)){ 
 	
 	$message = "Sorry, $guess isn't a number!!";
@@ -11,7 +12,7 @@ if(!is_numeric($guess)){
 	if($guess == $rand){
 		$message = "WOO! You rolled a $rand and you guessed $guess! :D ";
 	}else{
-		$message = "Dang! You rolled a $rand, you guessed $guess... so close! :(";
+		$message = "Dang! You rolled a $rand, but you guessed $guess... so close! :(";
 	}
 }
 ?>
@@ -25,11 +26,11 @@ if(!is_numeric($guess)){
    <link href="https://fonts.googleapis.com/css?family=Aldrich|Bangers" rel="stylesheet">
 <style>
 body {
-    background-color: #F7B2AD;
+    background-color: #333232;
 }
 
 h1 {
-    color: #333232;
+    color: white;
     margin-left: 40px;
     font-family: 'Aldrich', sans-serif;
     font-size: 50px;
@@ -38,5 +39,6 @@ h1 {
 </head>
 <body style >
     <h1> <?= $message ?> </h1>
+    
 </body>
 </html>

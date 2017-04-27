@@ -1,0 +1,38 @@
+body{
+	padding-top:12px;
+	padding-left: 12px;
+	background-color: #E2E2E2;
+	font-family: 'helvetica neue';
+}
+
+
+.box{
+	font-size:;
+  	padding:10px;
+ 	padding-left: 18px;
+	background-color: white;
+	border: 0px solid black;
+	border-radius: 5px;
+	margin-bottom: 1px;
+	margin-right: 20px;
+}
+
+
+.box:hover{
+	background-color: #F7F7F7;
+}
+
+
+.pagination{
+
+	background-color:gray;
+}
+
+.titleHead{
+	font-size:23px;
+}
+
+.time{
+	font-size:11px;
+	color:gray;
+}

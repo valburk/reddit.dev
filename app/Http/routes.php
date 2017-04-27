@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('{word}', function($word)
 // {
@@ -46,15 +46,21 @@
 //     return view('my-first-view', $data);
 // });
 
+Route::resource('posts', 'PostController');
 
 
 
-Route::get('/roll/{guess}', function($guess)
+// Route::get('/uppercase/{word}', function($word)
+// {
+//     if ($word == "word") {
+//         return Redirect::to('/');
+//     }
+
+//     $data = array('word' => $word);
+//     return view('layouts.uppercase', $data);
+// });
+Route::get('orm-test', function ()
 {
-    if ($guess == "guess") {
-        return Redirect::to('/');
-    }
-
-    $data = array('guess' => $guess);
-    return view('rolldice', $data);
+$posts = \App\Models\Post::all();
+return $posts;
 });
