@@ -11,6 +11,13 @@
 <body>
 <main class=container>
     @yield('content')
+    @if (Session::has('successMessage'))
+    	<div class="alert alert-success">{{ session('successMessage') }}</div>
+	@endif
+
+	@if (Session::has('errorMessage'))
+    	<div class="alert alert-danger">{{ session('errorMessage') }}</div>
+	@endif
 </main>
 </body>
 </html>
