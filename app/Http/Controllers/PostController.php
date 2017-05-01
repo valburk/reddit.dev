@@ -1,39 +1,32 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\Post;
+use App\User;
+use Session;
+use Log;
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        $posts = \App\Models\Post::orderBy('created_at', 'desc')->paginate(4);
+        $this->middleware('auth', ['create', 'store', 'edit', 'update', 'destroy']);
+    }
+    // getting access to the request, is as a easy as adding it as a parameter to any controller
+    // action
+    public function index(Request $request)
+    {
+        $posts = Post::paginate(4);
         $data = [];
         $data['posts'] = $posts;
-
-        
         return view('posts.index')->with($data);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
+        //if -> redirect
         return view('posts.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -42,61 +35,47 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-         $rules = array(
-        'title' => 'required|max:100',
-        'url'   => 'required',
-        'content'  => 'required'
-    );
-
-    $this->validate($request, $rules);
-
-        $post = new \App\Models\Post();
+        //if -> redirect
+        $this->validate($request, Post::$rules);
+        $post = new Post();
         $post->title = $request->title;
         $post->url = $request->url;
         $post->content = $request->content;
-        $post->created_by = $request->created_by;
+        $post->created_by = User::all()->random()->id;
         $post->save();
-        // return redirect()->action('PostController@show', $post->id);
+        Log::info("New post saved", $request->all());
         $request->session()->flash('successMessage', 'Post saved successfully');
-        $data = [];
-        $data['post'] = $post;
-        return view('posts.show')->with($data);
-
+        return redirect()->action('PostController@show', [$post->id]);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-
-        $post = \App\Models\Post::find($id);
+        $post = Post::find($id);
         if(!$post) {
-            \Session::flash('errorMessage', "Post not found");
-            return redirect()->action('PostController@index');
+            Log::error("Post with id of $id not found.");
+            abort(404);
         }
         $data = [];
         $data['post'] = $post;
         return view('posts.show')->with($data);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        $post = \App\Models\Post::find($id);
+        //if -> redirect
+        $post = Post::find($id);
+        if (!$post) {
+            Log::error("Post with id of $id not found.");
+            abort(404);
+        }
         $data = [];
         $data['post'] = $post;
         return view('posts.edit')->with($data);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -106,41 +85,31 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = array(
-            'title' => 'required|max:100',
-            'url'   => 'required',
-            'content'  => 'required'
-        );
-
-        $this->validate($request, $rules);
-
-        $post = \App\Models\Post::find($id);
+        //if -> redirect
+        $this->validate($request, Post::$rules);
+        $post = Post::find($id);
+        if (!$post) {
+            Log::error("Post with id of $id not found.");
+            abort(404);
+        }
         $post->title = $request->title;
         $post->url = $request->url;
         $post->content = $request->content;
-        $post->created_by = 1;
+        $post->created_by = $request->created_by;
         $post->save();
-        $data = [];
-        $data['post'] = $post;
-        return view('posts.show')->with($data);
+        $request->session()->flash('successMessage', 'Post updated successfully');
+        return redirect()->action('PostController@show', [$post->id]);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $post = \App\Models\Post::find($id);
-        if(!$post) {
-            \Session::flash('errorMessage', "Post not found");
-            return redirect()->action('PostController@index');
+        //if -> redirect
+        $post = Post::find($id);
+        if (!$post) {
+            Log::error("Post with id of $id not found.");
+            abort(404);
         }
-    
-        $data['post'] = $post;
         $post->delete();
-        return redirect()->action('PostController@index');
+        $request->session()->flash('successMessage', 'Post deleted successfully');
+        return view('posts.index');
     }
 }
