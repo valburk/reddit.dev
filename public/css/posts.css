@@ -1,7 +1,7 @@
 body{
 	padding-top:12px;
 	padding-left: 12px;
-	background-color: #E2E2E2;
+	background-color:white;
 	font-family: 'helvetica neue';
 }
 
@@ -25,7 +25,7 @@ body{
 
 .pagination{
 
-	background-color:gray;
+	background-color:white;
 }
 
 .titleHead{
@@ -35,4 +35,14 @@ body{
 .time{
 	font-size:11px;
 	color:gray;
+}
+
+
+.navbar{
+	background-color: red;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  background-color:blue;
 }

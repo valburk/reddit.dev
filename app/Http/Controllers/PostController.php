@@ -27,7 +27,7 @@ class PostController extends Controller
 
         if($request->has('search')){
 
-            $posts = Post::where('title','like',"%$request->search%")->paginate(4);
+            $posts = Post::join('users','created_by',"=", 'users.id')->where('name','like',"%$request->search%")->orWhere('title','like',"%$request->search%")->paginate(4);
         }else{
             $posts = Post::paginate(4);
         }
