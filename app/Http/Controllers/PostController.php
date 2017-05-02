@@ -11,13 +11,27 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['create', 'store', 'edit', 'update', 'destroy']);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
-    // getting access to the request, is as a easy as adding it as a parameter to any controller
-    // action
+
+
+
     public function index(Request $request)
     {
-        $posts = Post::paginate(4);
+        if($request->has('sort')){
+
+            $posts = Post::orderBy("$request->sort", 'desc')->paginate(4);
+        }else{
+            $posts = Post::paginate(4);
+        }
+
+        if($request->has('search')){
+
+            $posts = Post::where('title','like',"%$request->search%")->paginate(4);
+        }else{
+            $posts = Post::paginate(4);
+        }
+
         $data = [];
         $data['posts'] = $posts;
         return view('posts.index')->with($data);
