@@ -321,13 +321,52 @@ label:hover:before {
 }
 
 .btn-primary {
-    color:white;
-    background-color:#9ED4D3;
-    border-color: #2e6da4;
+    color: white;
+    background-color: #9ED4D3;
+    border-color: rgba(92, 199, 192, 0.6);
 }
 
+.btn-primary:hover {
+    color: white;
+    background-color: #82BCB9;
+    border-color: rgba(92, 199, 192, 0.6);
+}
+.btn-primary:active {
+    color: white;
+    background-color: #9ED4D3;
+    border-color: rgba(92, 199, 192, 0.6);
+}
 
 .col-xs-2 {
     width: 0.66666667%;
     margin-top: 4%;
+}
+
+
+.sortform {
+    display: block;
+    width: 30%;
+    height: 34px;
+  }
+
+
+  .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: rgba(51, 183, 159, 0.52);
+    border-color: rgba(159, 230, 219, 0.5);
+}
+
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #4c5054;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
 }

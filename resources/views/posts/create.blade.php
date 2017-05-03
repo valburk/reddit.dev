@@ -5,7 +5,7 @@
 @section('content')
 <h1> Create Post </h1>
 
-<form method="POST" action="{{ action('PostController@store') }}">
+<form method="POST" action="{{ action('PostController@store') }}" class = 'text-left'>
 {!! csrf_field() !!}
   <div class="form-group">
     <label for="title"> Title</label>
@@ -17,7 +17,7 @@
   </div>
   <div class="form-group">
     <label for="url">URL</label>
-    <input value = "{{ old('url') }}" type="text" class="form-control" id="url" name='url' placeholder="url">
+    <input value = "{{ old('url') }}" type="text" class="form-control" id="url" name='url' placeholder="">
  @if( $errors->has('url') )
 	{!! $errors->first('url', '<span class="help-block">:message</span>')!!}
 @endif
