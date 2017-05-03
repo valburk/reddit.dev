@@ -57,7 +57,7 @@
             <ul class="nav navbar-nav navbar-right">
               @if (Auth::check())
            
-
+					<li><a href="">Hello, name</a></li>
                     <li><a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a></li>
               @else
                     <li><a href="{{ action('Auth\AuthController@getLogin') }}">Login</a></li>

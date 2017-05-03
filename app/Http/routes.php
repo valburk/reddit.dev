@@ -56,6 +56,10 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::get('/account', 'AccountController@showAccount');
+
 // Route::get('/uppercase/{word}', function($word)
 // {
 //     if ($word == "word") {

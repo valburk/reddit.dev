@@ -22,6 +22,7 @@ class PostController extends Controller
         if($request->has('sort')){
 
             $posts = Post::orderBy("$request->sort", 'desc')->paginate(4);
+            
         }else{
             $posts = Post::paginate(4);
         }
