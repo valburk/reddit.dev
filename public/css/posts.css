@@ -15,12 +15,22 @@ body{
 	border-radius: 5px;
 	margin-bottom: 1px;
 	margin-right: 20px;
+	text-align: left;
 }
 
 
 .box:hover{
 	background-color: #F7F7F7;
 }
+
+
+.text{
+	font-size:;
+  	padding:10px;
+  	margin-left:4em;
+	text-align: left;
+}
+
 
 
 .pagination{
@@ -45,4 +55,9 @@ body{
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
   background-color:blue;
+}
+
+
+.col-xs-2 {
+    width: 0.66666667%;
 }

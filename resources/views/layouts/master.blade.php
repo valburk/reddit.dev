@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Reddit!</title>
 
-    <!-- Latest compiled and minified CSS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="/../../css/posts.css">
+    <link rel="stylesheet" href="/../../css/posts.css"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    
+
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet" href="/../css/bootstrap.min.css">   
+<link rel="stylesheet" href="/../../css/login.css">
 </head>
 <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-light" style="background-color: #9ED4D3;">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -34,6 +44,15 @@
                   <li><a href="#">Something else here</a></li>
                 </ul>
               </li>
+	
+			<form class="navbar-form navbar-left">
+        		<div class="form-group">
+         		 <input type="text" name= 'search' class="form-control" placeholder="Search">
+        		</div>
+        		<button type="submit" class="btn btn-default">Submit</button>
+      		</form>
+	
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
               @if (Auth::check())
@@ -60,7 +79,7 @@
 
     <!-- minified jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
+<script src="/../../js/loginstyle.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 

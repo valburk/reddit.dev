@@ -1,0 +1,113 @@
+body{
+	background-image: url('img/cats.jpg');
+}
+
+
+.box {
+	border-left:8px solid #CCBBB9;
+	border-bottom: 8px solid #CCBBB9;
+	width:150px;
+	height:150px;	
+	font-weight: bold;
+	font-size: 0px;
+	color: #FFFFFF; 
+	float: left;
+	font-family:'Open Sans Condensed';
+	text-align: center;	
+}
+
+.container{
+
+	background-color: #CCBBB9;
+	border: 0px solid black;
+	width: 340px;
+	height: 560px;
+	position: relative;
+	margin: auto;
+	margin-top: 40px;
+	border-radius: 20px;
+}
+
+#gamebox{
+	border: 1px solid black;
+	margin:auto;
+	position:absolute;
+}
+
+#title{
+	font-family:'Shadows Into Light';
+	text-align: center;
+	font-size: 55px;
+	color: #422D32;
+}
+#subtitle{
+	color: #454745;
+	font-family: 'Shadows Into Light';
+	text-align: center;
+}
+
+#over{
+	font-family:'Orbitron';
+	text-align: center;
+	color: #4D4647;
+}
+
+
+#box-red {
+	border-top-left-radius: 30px;
+	background-color: #EDA3AD;
+}
+#box-red:active{
+	background-color: #CC7677;
+}
+
+
+
+#box-yellow {
+	border-top-right-radius: 30px;
+	background-color: #9E768F;		
+}
+#box-yellow:active{
+	background-color: #664C5C;
+}
+
+
+
+#box-green {
+	border-bottom-left-radius: 30px;
+	background-color: #B1DD9D;
+	clear:left;
+}
+#box-green:active{
+	background-color: #577F57;
+}
+
+
+
+#box-blue {
+	background-color: #7EB2DD;
+	border-bottom-right-radius: 30px;	
+}
+#box-blue:active{
+	background-color: #628FAD;
+}
+
+
+
+#start{
+	clear:left;
+	width: 80px;
+	height: 50px;
+	background-color: #EEE3DF;
+	border:0px;
+	border-radius: 30px;
+	font-family:'Shadows Into Light';
+	font-size:29px;
+	margin: auto;
+	position: relative;
+	color:#4D4647;
+	
+}
+#start:hover{
+	background-color: #B1A6A6;
+}
