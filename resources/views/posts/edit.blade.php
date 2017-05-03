@@ -6,11 +6,11 @@
 <h1> Edit Post </h1>
 	
 
- <form action="{{ action('PostController@update', $post->id) }}" method="POST">
+ <form action="{{ action('PostController@update', $post->id) }}" method="POST" class='text'>
 {!! csrf_field() !!}
 
   <div class="form-group">
-    <label class='titleHead' for="formGroupExampleInput">Title</label>
+    <label class='' for="formGroupExampleInput">Title</label>
     <input value = "{{ $post->title }}" type="text" class="form-control" id="formGroupExampleInput" name='title' placeholder="{{ $post->title }}">
   </div> 
 
@@ -27,9 +27,8 @@
    <input type="submit" class="btn btn-default" value="Update Post ">
         {{ method_field('PUT') }}
     </form>
-	<br>
 
-    <form action="{{ action('PostController@destroy' , $post->id)}}" method="post">
+    <form action="{{ action('PostController@destroy' , $post->id)}}" method="post" class='text'>
         {!! csrf_field() !!}
         <input type="submit" value="Delete" class="btn btn-danger">
         {{ method_field('DELETE') }}

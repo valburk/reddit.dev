@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\User;
 use Session;
 use Log;
+use Auth;
 class PostController extends Controller
 {
     public function __construct()
@@ -109,7 +110,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->url = $request->url;
         $post->content = $request->content;
-        $post->created_by = $request->created_by;
+        $post->created_by = Auth::id();
         $post->save();
         $request->session()->flash('successMessage', 'Post updated successfully');
         return redirect()->action('PostController@show', [$post->id]);

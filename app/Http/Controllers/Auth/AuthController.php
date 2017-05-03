@@ -20,7 +20,7 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     protected $redirectPath = '/posts';
     /* This is optional if you used the default values in your routes.php file */
-    protected $loginPath = 'auth/login';
+    protected $loginPath = '/login';
     /**
      * Create a new authentication controller instance.
      *
